@@ -24,7 +24,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Backend test task
 
 ## Installation
 
@@ -35,28 +35,73 @@ $ npm install
 ## Running the app
 
 ```bash
-# development
-$ npm run start
+# build
+$ docker-compose build
 
-# watch mode
-$ npm run start:dev
+# start
+$ docker-compose up
 
-# production mode
-$ npm run start:prod
 ```
 
-## Test
+## Description
 
-```bash
-# unit tests
-$ npm run test
+#### Endpoints
 
-# e2e tests
-$ npm run test:e2e
+* http://localhost:3000/auth/register
 
-# test coverage
-$ npm run test:cov
 ```
+ method - POST
+
+ Expected data: 
+
+ name: string;
+ email: string;
+ password: string;
+ role: roles
+
+ roles = "Administrator" | "Boss" | "User";
+
+ Returns: new created use 
+```
+* http://localhost:3000/auth/login
+
+```
+ method - POST
+
+ Expected data: 
+
+ email: string;
+ password: string;
+
+ Returns: Bearer Token
+```
+* http://localhost:3000/users/
+
+```
+ method - GET
+
+ Expected data: 
+
+ Auth: Bearer Token
+
+ Returns: list of users
+```
+* http://localhost:3000/users/change
+
+```
+ method - POST
+
+ Expected data: 
+
+ Auth: Bearer Token
+
+ userId: number; - user identifier
+ newBoss: number; - new boss identifier
+
+ Returns: modified user 
+```
+
+
 
 ## Support
 
